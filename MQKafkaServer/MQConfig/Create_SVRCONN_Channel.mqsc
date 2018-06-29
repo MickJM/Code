@@ -1,0 +1,100 @@
+# non ssl
+define channel(KAFKA.SVRCONN) chltype(SVRCONN) mcauser('nobody') trptype(TCP) replace
+alter authinfo(SYSTEM.DEFAULT.AUTHINFO.IDPWOS) authtype(IDPWOS) adoptctx(NO)
+
+set chlauth(KAFKA.SVRCONN) type(blockuser) descr('Back stop rule') userlist('nobody') warn(no)
+set chlauth(KAFKA.SVRCONN) type(usermap) descr('Allow users from any IP address to connect') address('*') mcauser('MQAPP01') clntuser('KAFKA01') usersrc(MAP) CHCKCLNT(ASQMGR)
+set chlauth(KAFKA.SVRCONN) type(addressmap) descr('') address('*') mcauser('MQAPP01') usersrc(MAP) chckclnt(ASQMGR)
+
+refresh security type(authserv)
+
+# ssl
+define channel(KAFKA.SVRCONN_SSL) chltype(SVRCONN) mcauser('nobody') trptype(TCP) replace
+alter authinfo(SYSTEM.DEFAULT.AUTHINFO.IDPWOS) authtype(IDPWOS) adoptctx(NO)
+set chlauth(KAFKA.SVRCONN_SSL) type(blockuser) descr('TLS Back stop rule') userlist('nobody') warn(no)
+set chlauth(KAFKA.SVRCONN_SSL) type(usermap) descr('Allow users from any IP address to connect') address('*') mcauser('MQAPP01') clntuser('KAFKA01') usersrc(MAP) CHCKCLNT(ASQMGR)
+set chlauth(KAFKA.SVRCONN_SSL) type(addressmap) descr('') address('*') mcauser('MQAPP01') usersrc(MAP) chckclnt(ASQMGR)
+
+refresh security type(authserv)
+
+
+
+define ql(KAFKA.TEST.BACKOUT)
+define ql(KAFKA.TEST.BACKOUT) boqname('KAFKA.TEST.BACKOUT') bothresh(3)
+
+setmqaut -m TSTQPD01 -t qmgr -p "KAFKA01" +connect +inq +dsp
+setmqaut -m TSTQPD01 -n "**" -t q -p "KAFKA01" +dsp +browse
+setmqaut -m TSTQPD01 -n "**" -t topic -p "KAFKA01" +dsp
+setmqaut -m TSTQPD01 -n "**" -t channel -p "KAFKA01" +dsp
+setmqaut -m TSTQPD01 -n "**" -t process -p "KAFKA01" +dsp
+setmqaut -m TSTQPD01 -n "**" -t namelist -p "KAFKA01" +dsp
+setmqaut -m TSTQPD01 -n "**" -t authinfo -p "KAFKA01" +dsp
+setmqaut -m TSTQPD01 -n "**" -t clntconn -p "KAFKA01" +dsp
+setmqaut -m TSTQPD01 -n "**" -t listener -p "KAFKA01" +dsp
+setmqaut -m TSTQPD01 -n "**" -t service -p "KAFKA01" +dsp
+setmqaut -m TSTQPD01 -n "**" -t comminfo -p "KAFKA01" +dsp
+
+** remove **
+setmqaut -m TSTQPD01 -t qmgr -p "KAFKA01" -connect -inq -dsp
+setmqaut -m TSTQPD01 -n "**" -t q -p "KAFKA01" -dsp -browse
+setmqaut -m TSTQPD01 -n "**" -t topic -p "KAFKA01" -dsp
+setmqaut -m TSTQPD01 -n "**" -t channel -p "KAFKA01" -dsp
+setmqaut -m TSTQPD01 -n "**" -t process -p "KAFKA01" -dsp
+setmqaut -m TSTQPD01 -n "**" -t namelist -p "KAFKA01" -dsp
+setmqaut -m TSTQPD01 -n "**" -t authinfo -p "KAFKA01" -dsp
+setmqaut -m TSTQPD01 -n "**" -t clntconn -p "KAFKA01" -dsp
+setmqaut -m TSTQPD01 -n "**" -t listener -p "KAFKA01" -dsp
+setmqaut -m TSTQPD01 -n "**" -t service -p "KAFKA01" -dsp
+setmqaut -m TSTQPD01 -n "**" -t comminfo -p "KAFKA01" -dsp
+
+setmqaut -m TSTQPD02 -t qmgr -g "KafkaGrp01" +connect +inq +dsp
+setmqaut -m TSTQPD02 -n "**" -t q -g "KafkaGrp01" +dsp +browse
+setmqaut -m TSTQPD02 -n "**" -t topic -g "KafkaGrp01" +dsp +browse
+setmqaut -m TSTQPD02 -n "**" -t channel -g "KafkaGrp01" +dsp
+setmqaut -m TSTQPD02 -n "**" -t process -g "KafkaGrp01" +dsp
+setmqaut -m TSTQPD02 -n "**" -t namelist -g "KafkaGrp01" +dsp
+setmqaut -m TSTQPD02 -n "**" -t authinfo -g "KafkaGrp01" +dsp
+setmqaut -m TSTQPD02 -n "**" -t clntconn -g "KafkaGrp01" +dsp
+setmqaut -m TSTQPD02 -n "**" -t listener -g "KafkaGrp01" +dsp
+setmqaut -m TSTQPD02 -n "**" -t service -g "KafkaGrp01" +dsp
+setmqaut -m TSTQPD02 -n "**" -t comminfo -g "KafkaGrp01" +dsp
+
+setmqaut -m TSTQPD02 -n "**" -t q -g "KafkaGrp01" -dsp -browse
+setmqaut -m TSTQPD02 -n "**" -t q -g "KafkaGrp01" +browse +get +inq +set
+
+
+
+dspmqaut -m TSTQPD01 -t qmgr -g "KafkaGrp01"
+dspmqaut -m TSTQPD01 -n "**" -t q -p "KAFKA01" +dsp +browse
+setmqaut -m TSTQPD01 -n "**" -t topic -p "KAFKA01" +dsp
+setmqaut -m TSTQPD01 -n "**" -t channel -p "KAFKA01" +dsp
+setmqaut -m TSTQPD01 -n "**" -t process -p "KAFKA01" +dsp
+setmqaut -m TSTQPD01 -n "**" -t namelist -p "KAFKA01" +dsp
+setmqaut -m TSTQPD01 -n "**" -t authinfo -p "KAFKA01" +dsp
+setmqaut -m TSTQPD01 -n "**" -t clntconn -p "KAFKA01" +dsp
+setmqaut -m TSTQPD01 -n "**" -t listener -p "KAFKA01" +dsp
+setmqaut -m TSTQPD01 -n "**" -t service -p "KAFKA01" +dsp
+setmqaut -m TSTQPD01 -n "**" -t comminfo -p "KAFKA01" +dsp
+
+
+
+
+  AUTHINFO(SYSTEM.DEFAULT.AUTHINFO.IDPWOS)
+   AUTHTYPE(IDPWOS)                        ADOPTCTX(NO)
+   DESCR( )                                CHCKCLNT(REQDADM)
+   CHCKLOCL(OPTIONAL)                      FAILDLAY(1)
+   AUTHENMD(OS)                            ALTDATE(2018-05-01)
+   ALTTIME(15.07.28)
+    
+AMQ8878: Display channel authentication record details.
+   CHLAUTH(CUST.SVRCONN)                   TYPE(USERMAP)
+   DESCR(User map)                         CUSTOM( )
+   ADDRESS(*)                              CLNTUSER(mickm)
+   MCAUSER(MQApp01)                        USERSRC(MAP)
+   CHCKCLNT(ASQMGR)                        ALTDATE(2017-09-08)
+   ALTTIME(18.09.49)
+AMQ8878: Display channel authentication record details.
+   CHLAUTH(CUST.SVRCONN)                   TYPE(BLOCKUSER)
+   DESCR(Back stop)                        CUSTOM( )
+   USERLIST(nobody)                        WARN(NO)
+   ALTDATE(2017-09-08)                     ALTTIME(18.07.14)

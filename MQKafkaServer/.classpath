@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/mickm/Documents/Development/javabuild/classFiles/mqkafka/bin/MQKafka_lib/local_policy.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mickm/Documents/Development/javabuild/classFiles/mqkafka/bin/MQKafka_lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mickm/Documents/Development/javabuild/classFiles/mqkafka/bin/MQKafka_lib/log4j-over-slf4j-1.7.22.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mickm/Documents/Development/javabuild/classFiles/mqkafka/bin/MQKafka_lib/providerutil.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mickm/Documents/Development/javabuild/classFiles/mqkafka/bin/MQKafka_lib/slf4j-api-1.7.22.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mickm/Documents/Development/javabuild/classFiles/mqkafka/bin/MQKafka_lib/slf4j-ext-1.7.22.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mickm/Documents/Development/javabuild/classFiles/mqkafka/bin/MQKafka_lib/slf4j-nop-1.7.22.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mickm/Documents/Development/javabuild/classFiles/mqkafka/bin/MQKafka_lib/US_export_policy.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mickm/Documents/Development/javabuild/classFiles/mqkafka/bin/MQKafka_lib/EventHubIBMMessageHub.jar" sourcepath="/EventHubIBMMessageHub"/>
+	<classpathentry kind="lib" path="C:/Users/mickm/Documents/Development/javabuild/classFiles/mqkafka/bin/MQKafka_lib/java-json.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mickm/Documents/Development/javabuild/classFiles/mqkafka/bin/MQKafka_lib/EventHubMessagingBase.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/IBM/WebSphere MQ/java/lib/com.ibm.mq.headers.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/IBM/WebSphere MQ/java/lib/com.ibm.mq.jms.Nojndi.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/IBM/WebSphere MQ/java/lib/com.ibm.mqjms.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mickm/Documents/Development/javabuild/classFiles/mqkafka/bin/MQKafka_lib/MQConnection.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mickm/Documents/Development/javabuild/classFiles/mqkafka/bin/MQKafka_lib/MQJMSConnector.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/MQParameters"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/ResourceProperties"/>
+	<classpathentry kind="lib" path="C:/Users/mickm/Documents/Development/javabuild/classFiles/mqkafka/bin/MQKafka_lib/kafka-clients-0.10.0.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

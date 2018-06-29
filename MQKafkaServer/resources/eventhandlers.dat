@@ -1,0 +1,5 @@
+/,EventHub_lib\handlers\EventHubHTTPErrorHandler.jar,maersk.eventhub.http.errorhandler.v1.ErrorHandler
+/maersk,EventHub_lib\handlers\EventHubHTTPErrorHandler.jar,maersk.eventhub.http.errorhandler.v1.ErrorHandler
+/maersk/eventhub,EventHub_lib\handlers\EventHubHTTPErrorHandler.jar,maersk.eventhub.http.errorhandler.v1.ErrorHandler
+/maersk/eventhub/v1,EventHub_lib\handlers\EventHubHTTPMHEventHandler.jar,maersk.eventhub.http.mhhandler.v1.EventHubHandler
+/maersk/eventhub/status,EventHub_lib\handlers\EventHubHTTPEventStatus.jar,maersk.eventhub.http.mhstatus.v1.EventHubStatus

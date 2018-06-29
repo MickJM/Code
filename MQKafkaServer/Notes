@@ -1,0 +1,80 @@
+	// Send to Kafka in a Synchronous manner
+//	private Future<?> PostToKafkaSync(byte[] message) {
+	private void PostToKafkaSync(byte[] message) {
+		
+		//SendToKafka stk = new SendToKafka();
+		//stk.setMqconn(this.mqconn);
+		//stk.setMsgHub(this.msgHub);
+
+		this.stk = new SendToKafka();
+		this.stk.setMqconn(this.mqconn);
+		this.stk.setMsgHub(this.msgHub);
+
+		String msg = new String(message);
+		System.out.println("Debug: MQ message = " + msg);		
+		
+		
+	//	this.stk.setMessage(message);
+		
+	//	Thread mqProcessorThread = new Thread(this.stk);
+	//	mqProcessorThread.start();
+		
+		//this.stk.Start();
+		
+		//this.executorPool.setKeepAliveTime(3, TimeUnit.SECONDS);
+		//Future<?> future = this.executorPool.submit( stk );
+		//this.executorPool.execute(stk);
+		//return future;
+		
+	}
+	
+	// Send to Kafka in an Async manner
+	private void PostToKafkaAsync(byte[] message) {
+
+		// Create an object to send to Kafka ... the MQ commit is done in
+		// SendToKafka
+		//
+		//SendToKafka stk = new SendToKafka();
+		//stk.setMqconn(this.mqconn);
+		//stk.setMsgHub(this.msgHub);
+
+		this.stk = new SendToKafka();
+		this.stk.setMqconn(this.mqconn);
+		this.stk.setMsgHub(this.msgHub);
+
+		String msg = new String(message);
+		System.out.println("DEBUG: MQ message = " + msg);		
+		
+		this.stk.setMessage(message);
+		
+	//	Thread mqProcessorThread = new Thread(this.stk);
+	//	mqProcessorThread.setName("Thread-MQKafka");
+	//	mqProcessorThread.start();
+		
+		System.out.println("New Thread started");
+		
+		Set<Thread> threads = Thread.getAllStackTraces().keySet();
+		for (Thread t : threads) {
+		    String name = t.getName();
+		    Thread.State state = t.getState();
+		    int priority = t.getPriority();
+		    String type = t.isDaemon() ? "Daemon" : "Normal";
+		    System.out.printf("%-20s \t %s \t %d \t %s\n", name, state, priority, type);
+		}
+		
+		
+		
+		
+		//setResponseMessageStatus(true);
+		//String msg = new String(message);
+		//System.out.println("Debug: MQ message = " + msg);		
+		//this.stk.setMessage(message);
+		//this.stk.Start();
+		
+		//this.executorPool.setKeepAliveTime(3, TimeUnit.SECONDS);
+		//Future<?> future = this.executorPool.submit( stk );
+		//this.executorPool.execute(stk);
+		
+		
+		
+	}
