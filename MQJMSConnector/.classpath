@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Program Files/IBM/WebSphere MQ/java/lib/com.ibm.mq.jms.Nojndi.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/IBM/WebSphere MQ/java/lib/com.ibm.mqjms.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mickm/Documents/Development/javabuild/classFiles/eventhub/bin/EventHub_lib/EventHubIBMMessageHub.jar" sourcepath="/EventHubIBMMessageHub"/>
+	<classpathentry kind="lib" path="C:/Users/mickm/Documents/Development/javabuild/classFiles/eventhub/bin/EventHub_lib/EventHubMessagingBase.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mickm/Documents/Development/jarFiles/kafka/kafka/clients-0.10.0.0/kafka-clients-0.10.0.0.jar" sourcepath="/EventHubIBMMessageHub"/>
+	<classpathentry kind="lib" path="C:/Users/mickm/Documents/Development/jarFiles/json/json/java-json/java-json.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files/IBM/WebSphere MQ/java/lib/com.ibm.mq.allclient.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
